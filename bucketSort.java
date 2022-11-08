@@ -11,9 +11,9 @@ class Untitled {
 				min = Array[i];
 			}
 		}
-		int num = (max - min) / Array.length + 1;
-		int d = (max - min + 1) / Array.length;
-		int[][] bucket = new int[20][Array.length];
+		int d = (max - min) / Array.length;
+		int num = (max - min + 1) / d + 1;
+		int[][] bucket = new int[num][Array.length];
 		for (int i = 0;i < Array.length;i++) {
 			int x = (Array[i] - min) / d;
 			int c = 0;
@@ -23,7 +23,7 @@ class Untitled {
 			bucket[x][c] = Array[i];
 		}
 		
-		for (int i = 0;i < 20;i++) {
+		for (int i = 0;i < num;i++) {
 			for (int j = 0;j < bucket[i].length;j++) {
 				if (bucket[i][j] != 0) {
 					Array[z] = bucket[i][j];
