@@ -22,7 +22,16 @@ class Untitled {
 			}
 			bucket[x][c] = Array[i];
 		}
-		
+		for (int i = 0;i < num;i++) {
+			int[] temp = new int[Array.length];
+			for (int j = 0;j < bucket[i].length;j++) {
+				temp[j] = bucket[i][j];
+			}
+			insertSort(temp);
+			for (int k = 0;k < bucket[i].length;k++) {
+				bucket[i][k] = temp[k];
+			}
+		}
 		for (int i = 0;i < num;i++) {
 			for (int j = 0;j < bucket[i].length;j++) {
 				if (bucket[i][j] != 0) {
@@ -34,8 +43,8 @@ class Untitled {
 	}
 	public static void insertSort(int[] Array) {
 		for (int i = 0; i < Array.length; i++) {
-			for (int j = 1; j < Array.length; i++) {
-				if (Array[i-1]>Array[j]) {
+			for (int j = 1; j < Array.length; j++) {
+				if (Array[j-1]>Array[j]) {
 					int x = Array[j-1];
 					int y = Array[j];
 					Array[j-1] = y;
